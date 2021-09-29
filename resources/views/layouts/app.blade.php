@@ -27,7 +27,7 @@
             <!-- Sidebars -->
             <x-layout.sidebar.desktop-sidebar>
                 <!-- Foreach through modules avail for user -->
-                <x-layout.modules.dashboard />
+                <x-layout.modules.dashboard :active="request()->routeIs('dashboard')" />
             </x-layout.sidebar.desktop-sidebar>
             <x-layout.sidebar.mobile-sidebar />
             <!-- /Sidebars -->
@@ -40,8 +40,17 @@
 
                 <!-- Body -->
                 <main class="h-full pb-6 overflow-y-auto">
-                    <div class="container px-10 mx-auto grid">
-                        {{ $slot }}
+                    <div class="container mx-auto grid">
+                        @if (isset($header))
+                            <header class="xborder-b-2 border-gray-100">
+                                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                                    {{ $header }}
+                                </div>
+                            </header>
+                        @endif
+                        <div class="px-4">
+                            {{ $slot }}
+                        </div>
                     </div>
                 </main>
                 <!-- /Body -->

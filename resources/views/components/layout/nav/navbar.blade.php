@@ -14,12 +14,19 @@
         @endif
 
         <ul class="flex items-center flex-shrink-0 space-x-6">
+
+            @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
+                <x-layout.nav.teams-menu />
+            @endif
+
             @if($notifications != "hide" )
                 <x-layout.nav.notifications-menu />
             @endif
+
             @empty($profile)
                 <x-layout.nav.profile-menu />
             @endempty
+
         </ul>
     </div>
 </header>

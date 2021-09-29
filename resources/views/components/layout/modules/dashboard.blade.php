@@ -1,7 +1,6 @@
 @props([
-    'active'    // set to any value (e.g. true) to apply. Prob do this using route() helper
+    'active'    // set to any value (e.g. true) to apply
 ])
-
 <li class="relative px-6 py-3">
     <a
         class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200
