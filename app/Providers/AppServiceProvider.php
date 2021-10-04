@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->singleton(Factory::class, function () {
+            return Factory::construct(__DIR__ . '/Database/factories');
+        });
     }
 }
