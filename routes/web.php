@@ -7,10 +7,8 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
+| NOTE: Each subdomain has its own routes file in routes/{subdomain}.php
+| (Called in RouteServiceProvider.php)
 */
 
 Route::get('/', function () {

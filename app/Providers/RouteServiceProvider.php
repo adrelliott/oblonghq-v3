@@ -7,7 +7,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
-
+Use Illuminate\Support\Arr;
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -28,6 +28,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     // protected $namespace = 'App\\Http\\Controllers';
 
+
     /**
      * Define your route model bindings, pattern filters, etc.
      *
@@ -43,9 +44,23 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware('web')
+            Route::domain($this->baseDomain('surveys'))
+                ->middleware('web')
                 ->namespace($this->namespace)
-                ->group(base_path('routes/web.php'));
+                ->group(base_path('routes/surveys.php'));
+
+            Route::domain($this->baseDomain('crm'))
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/crm.php'));
+
+            // Add more subdomains here if needed
+
+            // Ensure this goes last
+            Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
+
         });
     }
 
@@ -60,4 +75,18 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
         });
     }
+
+     /**
+     * Determine the current environment's domain (e.g. oblonghq.test) and prepend a subdomain if passed
+     *
+     * @return string
+     */
+    private function baseDomain(string $subdomain = ''): string
+    {
+        if (strlen($subdomain) > 0) {
+            $subdomain = "{$subdomain}.";
+        }
+        return $subdomain . config('app.base_domain');
+    }
+
 }
