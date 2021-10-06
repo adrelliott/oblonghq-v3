@@ -3,7 +3,7 @@
 namespace App\Traits;
 
 use Illuminate\Support\Facades\Auth;
-use App\Scopes\ConstrainByTenantId;
+use App\Scopes\ConstrainByTenantIdScope;
 use App\Models\Tenant;
 
 trait IsTenantTrait
@@ -13,7 +13,7 @@ trait IsTenantTrait
     {
         // Don't apply to seeding!
         if (Auth::check()) {
-            static::addGlobalScope(new ConstrainByTenantId);
+            static::addGlobalScope(new ConstrainByTenantIdScope);
 
             static::creating(function ($model) {
                 $model->tenant_id = Auth::user()->tenant_id;

@@ -16,10 +16,16 @@ class SurveySeeder extends Seeder
         $businesses = \App\Models\Crm\Business::all();
 
         $businesses->each(function($business) {
-            \App\Models\Surveys\Survey::factory(15)->create([
-                'business_id' => $business->id,
-                'tenant_id' => $business->tenant_id,
-            ]);
+            \App\Models\Surveys\Survey::factory(3)
+                ->has(
+                    \App\Models\Surveys\Section::factory()
+                        ->sequence(fn ($sequence) => ['order' => $sequence->index])
+                        ->count(4)
+                )
+                ->create([
+                    'business_id' => $business->id,
+                    'tenant_id' => $business->tenant_id,
+                ]);
         });
     }
 }

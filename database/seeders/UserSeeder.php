@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
         // Make an easy to remember login
          \App\Models\User::factory()->create([
             'name' => 'Al Superadmin',
-            'email' => 'admin@admin.com',
+            'email' => 'al@admin.com',
             // 'is_superadmin' => TRUE,
             'tenant_id' => 1
          ]);

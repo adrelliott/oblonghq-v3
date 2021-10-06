@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             // Now set up the surveys, sections and questions
             SurveySeeder::class,
             SectionSeeder::class,
+            QuestionSeeder::class,
 
             // Mocks up a membership site
             CourseSeeder::class,

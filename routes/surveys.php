@@ -23,6 +23,16 @@ Route::get('/ask/survey-closed', function() {
     return view('surveys.errors.survey-closed');
 })->name('surveys.survey-closed');
 
+
+// Testing routes
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin/surveys', function() {
+    return App\Models\Surveys\Survey::select('id', 'tenant_id', 'sections.name')
+        ->with(['sections', 'sections.questions'])
+        ->first();
+});
+
+
+
 // Route::group([
 //     'middleware' => ['signed'],
 //     'prefix' => 'ask',
