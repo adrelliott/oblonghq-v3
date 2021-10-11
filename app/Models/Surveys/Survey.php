@@ -11,6 +11,8 @@ class Survey extends Model
     use HasFactory;
     use BelongsToATenant;
 
+    protected $with = ['sections', 'sections.questions'];
+
     public function business()
     {
         return $this->belongsTo(Business::class);
@@ -22,11 +24,6 @@ class Survey extends Model
             ->orderBy('order', 'asc')
             ->withTimestamps();
     }
-
-    // public function questions()
-    // {
-    //     return $this->hasManyThrough(Question::class, Section::class);
-    // }
 
     // public function responses()
     // {
