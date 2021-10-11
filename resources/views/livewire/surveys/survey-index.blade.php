@@ -39,7 +39,7 @@
                             <x-ui.button-link href="{{ route('app.surveys.show', ['survey' => $survey->id])}}" class="text-xs px-2 py-1">
                                 View
                             </x-ui.button-link>
-                            <x-ui.button-link href="{{ route('app.surveys.show', ['survey' => $survey->id])}}" class="text-xs px-2 py-1">
+                            <x-ui.button-link href="{{ route('app.surveys.clone', ['survey' => $survey->id])}}" class="text-xs px-2 py-1">
                                 Clone
                             </x-ui.button-link>
                         </x-tables.td>
