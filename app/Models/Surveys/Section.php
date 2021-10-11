@@ -21,6 +21,11 @@ class Section extends Model
             ->withTimestamps();
     }
 
+    public function getQuestionCountAttribute()
+    {
+        return $this->questions->count();
+    }
+
     // public function responses()
     // {
     //     return $this->hasManyThrough(Response::class, Question::class);

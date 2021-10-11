@@ -20,6 +20,7 @@ class CreateSectionsTable extends Migration
             $table->text('body')->nullable();
             $table->integer('order')->default(0);
             $table->boolean('is_template')->default(0);
+            $table->boolean('is_intro_page')->default(0);
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
