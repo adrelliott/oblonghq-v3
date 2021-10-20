@@ -23,7 +23,7 @@ class SurveySeeder extends Seeder
                         ->count(4)
                 )
                 ->create([
-                    'business_id' => $business->id,
+                    'client_id' => $business->id,
                     'tenant_id' => $business->tenant_id,
                 ]);
         });

@@ -17,7 +17,7 @@ class ContactSeeder extends Seeder
 
         $businesses->each(function($business) {
             \App\Models\Crm\Contact::factory(15)->create([
-                'business_id' => $business->id,
+                'client_id' => $business->id,
             ]);
         });
     }

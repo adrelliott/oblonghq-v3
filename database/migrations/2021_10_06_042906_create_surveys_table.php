@@ -17,9 +17,12 @@ class CreateSurveysTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('description')->nullable();
+            $table->text('intro_page')->nullable();
+            $table->text('outro_page')->nullable();
+            $table->integer('current_step_no')->default(1);
             $table->boolean('is_template')->default(0);
             $table->boolean('has_sections')->default(0);
-            $table->foreignId('business_id')->nullable();
+            $table->foreignId('client_id')->nullable();
             $table->foreignId('tenant_id')->nullable();
             $table->timestamp('opens_at')->nullable();
             $table->timestamp('closes_at')->nullable();

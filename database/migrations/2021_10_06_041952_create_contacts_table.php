@@ -20,7 +20,7 @@ class CreateContactsTable extends Migration
             $table->string('position')->nullable();
             $table->string('email')->nullable();
             $table->text('notes')->nullable();
-            $table->foreignId('business_id');
+            $table->foreignId('client_id');
             $table->timestamps();
         });
     }

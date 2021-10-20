@@ -14,6 +14,12 @@ class Survey extends Model
 
     protected $with = ['sections', 'sections.questions'];
 
+    protected $attributes = [
+        'current_step_no' => 1
+    ];
+
+    protected $guarded = ['tenant_id'];
+
     public function sections()
     {
         return $this->belongsToMany(Section::class)
@@ -23,13 +29,18 @@ class Survey extends Model
 
     public function client()
     {
-        return $this->belongsTo(Business::class, 'business_id');
+        return $this->belongsTo(Business::class, 'client_id');
     }
 
-    public function questionsCount()
-    {
-        return 1;
-    }
+    // public function setClientIdAttribute($value)
+    // {
+    //     return (int)$value;
+    // }
+
+    // public function questionsCount()
+    // {
+    //     return 1;
+    // }
 
     // public function responses()
     // {

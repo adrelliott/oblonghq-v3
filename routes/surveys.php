@@ -51,8 +51,8 @@ Route::group([
 ], function () {
 
     Route::get('/surveys', \App\Http\Livewire\Surveys\SurveyIndex::class)->name('index');
-    Route::get('/surveys/create', \App\Http\Livewire\Surveys\SurveyIndex::class)->name('create');
-    Route::get('/surveys/{survey}', \App\Http\Livewire\Surveys\SurveyShow::class)->name('show');
+    Route::get('/surveys/create', \App\Http\Livewire\Surveys\SurveyForm::class)->name('create');
+    Route::get('/surveys/{survey}', \App\Http\Livewire\Surveys\SurveyForm::class)->name('show');
     Route::get('/surveys/{survey}/clone', \App\Http\Livewire\Surveys\SurveyShow::class)->name('clone');
 
 });

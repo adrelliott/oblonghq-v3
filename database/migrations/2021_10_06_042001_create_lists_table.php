@@ -17,7 +17,7 @@ class CreateListsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('description')->nullable();
-            $table->foreignId('business_id');
+            $table->foreignId('client_id');
             $table->timestamps();
         });
     }
