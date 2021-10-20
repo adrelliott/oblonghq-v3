@@ -54,10 +54,15 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/crm.php'));
 
-            Route::domain($this->baseDomain('outreach'))
-                // ->middleware('web')
+            Route::domain($this->baseDomain('admin'))
+                ->middleware('web')
                 ->namespace($this->namespace)
-                ->group(base_path('routes/outreach.php'));
+                ->group(base_path('routes/admin.php'));
+
+            Route::domain($this->baseDomain('app'))
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/app.php'));
 
             // Add more subdomains here if needed
 

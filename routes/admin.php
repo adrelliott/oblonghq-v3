@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', function() {
-	return 'This is Outreach';
+Route:: get('/', function() {
+    return 'This is admin';
 });
 
-Route::get('/dashboard', function() {
-	return 'This is Outreach Dashboard';
+Route:: get('/dashboard', function() {
+    return 'This is admin dashboard';
 });
+
